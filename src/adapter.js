@@ -1,3 +1,5 @@
+(function(window) {
+
 function createQUnitStartFn (tc, runnerPassedIn) { // eslint-disable-line no-unused-vars
   return function () {
     var FIXTURE_ID = 'qunit-fixture'
@@ -86,3 +88,14 @@ function createQUnitStartFn (tc, runnerPassedIn) { // eslint-disable-line no-unu
     runner.start()
   }
 }
+
+window.QUnit.config.autostart = false;
+
+if (window.removeEventListener) {
+  window.removeEventListener('load', window.QUnit.load, false);
+} else {
+  window.detachEvent('onload', window.QUnit.load);
+}
+
+window.createQUnitStartFn = createQUnitStartFn;
+})(window);
