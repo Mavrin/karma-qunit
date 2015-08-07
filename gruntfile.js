@@ -49,7 +49,7 @@ module.exports = function (grunt) {
       'build',
       'bump-only:' + (type || 'patch'),
       'bump-commit',
-      'npm-publish'
+     // 'npm-publish'
     ])
   })
 }
